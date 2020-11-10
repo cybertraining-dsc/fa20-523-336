@@ -23,7 +23,7 @@ class OHLC:
 # stores data about a stock's earning, expected, actual, date, etc. 
 class EarningsDay:
 
-    def __init__ (self, month, day, year, eps, expectedEps=None, revenue=None, expectedRevenue=None):
+    def __init__ (self, month, day, year, eps, time, expectedEps=None, revenue=None, expectedRevenue=None):
         self.month = month
         self.day = day
         self.year = year
@@ -31,6 +31,7 @@ class EarningsDay:
         self.expectedEps = expectedEps
         self.revenue = revenue
         self.expectedRevenue = expectedRevenue
+        self.time = time
 
     
 # returns a list of OHLC objects relative to the stock ticker
@@ -118,12 +119,47 @@ def FMPfindStockEarningsData (stockTicker, apiKey):
         symbol = earningsData["symbol"] # this isn't used yet but as the program progresses I will also store the ticker name within these objects
         eps = earningsData["eps"] # earnings per share
         epsEstimate = earningsData["epsEstimated"]
+        time = earningsData["time"] # either AMC (after market close) or BMO (before market open)
         revenue = earningsData["revenue"]
         revenueEstimated = earningsData["revenueEstimated"]
 
-        allEarningsDays.insert(0, EarningsDay(month, day, year, eps, epsEstimate, revenue, revenueEstimated))
+        allEarningsDays.insert(0, EarningsDay(month, day, year, eps, time, epsEstimate, revenue, revenueEstimated))
 
     return allEarningsDays
+
+
+def earningsCalculations (stockHistory, earningsHistory):
+
+    earningsAndPriceChanges = []
+    for earning in earningsHistory: # runs through all the earnings objects that the stock has
+        for i in range(len(stockHistory)): # runs through all the stock days in order to find the day that the earning occured
+            dayData = stockHistory[i]
+            if (earning.day == dayData.day
+                and earning.month == dayData.month
+                and earning.year == dayData.year): # finding the earning day 
+                if (earning.time == "bmo"): # before market open
+                    # compare the past days close with the current day's open and close price
+                    previousEarningsDayOHLC = stockHistory[i-1]
+                    earningDayOHLC = dayData
+                elif (earning.time == "amc"): # after market close
+                    # compare the current days close with the next day's open and close prices
+                    previousEarningsDayOHLC = dayData
+                    earningDayOHLC = stockHistory[i+1] # if the earnings happens after the market closes then we want to see how the next day responds
+
+                # here are the stats from the earning day
+                changeFromPastClose = earningDayOHLC.close - previousEarningsDayOHLC.close
+                changeFromOpen = earningDayOHLC.close - earningDayOHLC.open
+                earningsAndPriceChanges += [[earning, changeFromPastClose, changeFromOpen]] 
+                break
+
+    # returns [[earningobj, changeFromPastClose, changeFromOpen], ...]
+    return earningsAndPriceChanges
+
+
+    
+
+    return None
+
 
 
 if __name__ == "__main__":
