@@ -34,27 +34,27 @@ The first and simplest part of the project was to gather the data from FMP. As t
 2.	Finding Earnings Data  
 Secondly, the earnings data from the company must be gathered, FMP has the ability to pull earnings results going back roughly 20 years depending on the company, this is more than adequate for this software as I will not solely be using the earnings reports from only one company or industry. After the earnings dates, eps, and expected eps is pulled from the API call, it is stored in an earningsData object which possessed the date, eps, expected eps, revenue, and expected revenue for that specific earning call. A function in the software called FMPfindStockEarningData() returns a list of all earningsData object for further analysis. 
 3.	Calculations and Results  
-The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed below:
-Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
-This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.  
-•	A. % of (+) beat earnings when the stock is in an uptrend  
-•	B. % of (-) missed earnings when the stock is in a downtrend  
+	The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed below:
+	Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
+	This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.  
+	•	A. % of (+) beat earnings when the stock is in an uptrend  
+	•	B. % of (-) missed earnings when the stock is in a downtrend  
 
-Finds the likelihood of a stock’s price movement based on earnings results
-Stocks the perform well (or beat earnings) are typically looked at by investors as buying opportunities, and thus the security’s price increases. This is not always the case however, and the results of this will be shown later in the report. Sometimes, investors project the stock to beat earnings by more than others and in turn find even some positive earnings results bearish. This can cause major stockholder to sell their shares and bring the price down.
+	Finds the likelihood of a stock’s price movement based on earnings results
+	Stocks the perform well (or beat earnings) are typically looked at by investors as buying opportunities, and thus the security’s price increases. This is not always the case however, and the results of this will be shown later in the report. Sometimes, investors project the stock to beat earnings by more than others and in turn find even some positive earnings results bearish. This can cause major stockholder to sell their shares and bring the price down.
 
-•	C. % of (+) beat earnings, where price increases from open  
-•	D. % of (+) beat earnings, where price increase from the previous day’s close  
-•	E. % of (-) missed earnings, where price decreases from open  
-•	F. % of (-) missed earnings, where price decreases from the previous day’s close  
+	•	C. % of (+) beat earnings, where price increases from open  
+	•	D. % of (+) beat earnings, where price increase from the previous day’s close  
+	•	E. % of (-) missed earnings, where price decreases from open  
+	•	F. % of (-) missed earnings, where price decreases from the previous day’s close  
 
-Finds the likelihood of a stock’s price movement based on earnings results and stock trend
-The final set of calculations the software is performing looks at all parts of the stock and its trend. It identifies the likelihood of a stock price increasing due to (+) beat or (-) missed earnings, while it is in a specific type of trend reflective of the earnings direction. This can be used by investors to find stocks in an uptrend or downtrend, who also want to play the earnings direction and try to profit from it.
+	Finds the likelihood of a stock’s price movement based on earnings results and stock trend
+	The final set of calculations the software is performing looks at all parts of the stock and its trend. It identifies the likelihood of a stock price increasing due to (+) beat or (-) missed earnings, while it is in a specific type of trend reflective of the earnings direction. This can be used by investors to find stocks in an uptrend or downtrend, who also want to play the earnings direction and try to profit from it.
 
-•	G. % of (+) beat earnings, where price increases from open and is in a current uptrend  
-•	H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend  
-•	I. % of (-) missed earnings, where price decreases from open and is in a current downtrend  
-•	J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend  
+	•	G. % of (+) beat earnings, where price increases from open and is in a current uptrend  
+	•	H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend  
+	•	I. % of (-) missed earnings, where price decreases from open and is in a current downtrend  
+	•	J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend  
 
 ### THE RESULTS
 For the first results scan I picked 5 popular companies within the S&P500, within the technology and energy sector. This first test was meant to get a baseline of calculations of strong stocks in this index and get an estimated calculation time for the operation. After running the first calculation I got the results as followed. The total calculation time clocked in at just over 8 seconds for the 5 stock calculations (1.6 seconds/stock). At this rate, calculating all 500 stocks from the S&P500 should take around 13:20 minutes. 
@@ -65,6 +65,7 @@ Stocks Scanned: AAPL, MSFT, TWLO, GE, NVDA
    
 From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 earnings beats, and 98 earnings misses. When stocks are in a current uptrend, the company is expected to beat earnings expectations 78.6% of the time, and when the stock is in a current downtrend the company is expected to miss earnings 59.7% of the time. This means that if the stock is in an uptrend, investors predicting a company will beat earnings would be correct more than 3/4 of the time. Of the stocks evaluated, if the company beat earnings, the price would increase from the open 42.3% of the time, and increase from the past close 61.3% of the time. Additionally, if a company missed earnings expectations, the stock price closed below the open 59% of the time, and below the previous close 60% of the time. This leads to the prediction that investors are more concerned about the company missing earnings, rather than the company beating earnings. The company missing earning expectations is more detrimental to the stock price than the company beating earnings recommendations. Lastly, of these 5 stocks, the price increases from open when earnings have been beat and the stock is in an uptrend 43.5% of the time. Notice since we added the uptrend filter on this scan, it results a higher calculation than calculation C. but only slightly. Stocks that are in an uptrend and beat earnings, increase from the previous close 63.9% of the time. Again, these results are only slightly higher than calculation D. If the stock is in a downtrend and the company misses earnings, the stock price will decrease from the open 60.1% of the time and will decrease from the previous close 54.3% of the time. This means that stocks that are in a downtrend and miss earnings, tend to actually have a spike up in premarket hours (before open 9:30amET) and then crash further throughout the day, since the decrease from open % is greater than the decrease from past close %.  
 Below are test1 results formatted more neatly:  
+  
 •	Total Data Points Evaluated: 36,170  
 •	Total Beat Earnings: 222  
 •	Total Missed Earnings: 98  
@@ -84,6 +85,7 @@ Below are test1 results formatted more neatly:
 ##### Full Results Calculation 1
 The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total). This was one of the things that originally surprised me as I thought that the calculations were going to take significantly less time based on the first test calculation done. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, I was able to identify the changes between the first test scan and the full scan. The calculation result percentages seemed to average out an begin to navigate towards the 50% or random mark, although there were a few scan results that yielded some potential advantage across the board.  
 Below are the results of the full scan, and the result differences compared to the 5-stock scan above:  
+  
 •	Total Data Points Evaluated: 3,704,001  
 •	Total Beat Earnings: 20,789 (62.3%)  
 •	Total Missed Earnings: 12,577 (37.7%)  
@@ -98,6 +100,7 @@ Below are the results of the full scan, and the result differences compared to t
 •	H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend: 57.68% (-6.19% difference)  
 •	I. % of (-) missed earnings, where price decreases from open and is in a current downtrend: 53.76% (-7.11% difference)  
 •	J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend: 58.48% (-4.13% difference)  
+  
 Although these results tend to show more randomness than the 5 scanned in the first results, there are a few scans that could yield a profitable and predictive strategy for investors, and or provide some insight into what the price of a security may do. One area where the software is still able to somewhat accurately able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time. Of these times, the stock price will increase from the past close 57.68% of the time.  
 
 ### CONCLUSION
