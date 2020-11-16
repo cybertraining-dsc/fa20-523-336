@@ -3,6 +3,7 @@
 
 import os
 import requests
+import datetime
 
 # Open High Low Close - stores the data of that current stock's day
 class OHLC:
@@ -157,6 +158,20 @@ def FMPfindStockEarningsData (stockTicker, apiKey):
 
     return allEarningsDays
 
+def getSPYcompanies (apiKey):
+    
+    url = "https://financialmodelingprep.com/api/v3/sp500_constituent?apikey=" + apiKey
+    stockTickerList = []
+    try:
+        spyStockDataJSON = requests.get(url).json()
+    except:
+        return None
+
+    for stockdata in spyStockDataJSON:
+        stockTickerList += [stockdata["symbol"]]
+
+    return stockTickerList
+
 
 def earningsCalculations (stockHistory, earningsHistory):
 
@@ -180,7 +195,6 @@ def earningsCalculations (stockHistory, earningsHistory):
                     previousEarningsDayOHLC = dayData
                     earningDayOHLC = stockHistory[i+1] # if the earnings happens after the market closes then we want to see how the next day responds
                 # here are the stats from the earning day
-                print(earning.time)
                 changeFromPastClose = earningDayOHLC.close - previousEarningsDayOHLC.close
                 changeFromOpen = earningDayOHLC.close - earningDayOHLC.open
                 earningsAndPriceChanges += [[earning, dayData, changeFromPastClose, changeFromOpen]] 
@@ -214,9 +228,7 @@ if __name__ == "__main__":
         
     
 
-
     # THESE VARIABLES STORE ALL OF THE DATA FROM ALL OF THE STOCKS COMBINDED
-    stockList = []
     totaldataPieces = 0 # total of all ohlc data objects scanned
     totalinUptrend = 0 # all the earnings days when the stock is in an uptrend
     totalinDowntrend = 0 # all the earning days when the stock is in a downtrend
@@ -259,49 +271,38 @@ if __name__ == "__main__":
 
 
     stockList = ["AAPL","MSFT","TWLO","AAL","AA","AB","BA","BMO"]
+    stockList = getSPYcompanies(apiKey) # gets all of the SPY stock list
+    print("LEN:", len(stockList))
+
+    startTime = datetime.datetime.now()
 
     for stockTicker in stockList:
 
         # GATHERS THE STOCK DATA
         stockHistoricalData = FMPgetStockHistoricalData(stockTicker, apiKey) # gets all of the historical stock data
-    
+        
+        if (stockHistoricalData == None):
+            continue
+
         # this doesn't go back all the way, while doing the full project we will pull data from the begining of the stock IPO
-        print(len(stockHistoricalData), "data pieces found for", stockTicker) # returns the # of data points
         totaldataPieces += len(stockHistoricalData)
-        print("\n")
 
-
-        # MOVING AVERAGES 
-        # if the currentPriceIsAbove N periods of moving averages 
-        if (aboveMovingAverage(stockHistoricalData, 20)): # 20 period MA
-            print ("20 MA: ▲")
-        else:
-            print("20 MA: ▼")
-
-        if (aboveMovingAverage(stockHistoricalData, 50)): # 20 period MA
-            print ("50 MA: ▲")
-        else:
-            print("50 MA: ▼")
-
-        print("\n")
+        print(len(stockHistoricalData), "data pieces found for", stockTicker) # returns the # of data points
 
 
         # EARNINGS DATA... CALCULATIONS
         # gives a list of the most recent earnings from the stock that you picked
         allEarningsData = FMPfindStockEarningsData(stockTicker, apiKey)
+        if (len(allEarningsData) == 0): # if there is no stock earnings data found for the company
+            continue
+
         mostRecentEarningsData = allEarningsData[-1]
         earningsCalcs = earningsCalculations(stockHistoricalData, allEarningsData)
 
-        print("Total Earnings Data Found:", len(allEarningsData))
-        print("Earnings Calculations Completed:", len(earningsCalcs)) # should result the same number as len(allEarningsData)
-        #print("The most recent earnings day was: " + mostRecentEarningsData.month + "-" + mostRecentEarningsData.day + "-" + mostRecentEarningsData.year)
-        #print("EPS:", mostRecentEarningsData.eps)
-        #print("Expected EPS:", mostRecentEarningsData.expectedEps, "\n\n")
 
         inUptrend = [] # all the earnings days when the stock is in an uptrend
         inDowntrend = [] # all the earning days when the stock is in a downtrend
 
-        print("Historical Earnings") # 26 total comparissons
         goodEarnings = [] # the earnings where the actual EPS is higher than the expected EPS
         goodEarningsPriceIncreaseFromOpen = [] # if we have good earnings, and the price of the stock increases from market open
         goodEarningsPriceIncreaseFromPastClose = [] # if we have good earnings, and the price of the stock increases from the last market days close
@@ -357,6 +358,9 @@ if __name__ == "__main__":
                 totalinDowntrend += 1
 
             # GOOD EARNINGS! --- EPS is more than expected EPS 
+            if (earningDay.eps == None or earningDay.expectedEps == None): # if there is an error with the eps or expected eps data
+                continue
+
             if (earningDay.eps > earningDay.expectedEps):
                 goodEarnings += [earningData]
                 totalgoodEarnings += 1
@@ -473,7 +477,27 @@ if __name__ == "__main__":
         # prints out the percentage of price increases/decrease to positive/negative earnings... 
         # STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS STOCK CALCS 
         
+        '''
         print("\n\n")
+        
+        # MOVING AVERAGES 
+        # if the currentPriceIsAbove N periods of moving averages 
+        if (aboveMovingAverage(stockHistoricalData, 20)): # 20 period MA
+            print ("20 MA: ▲")
+        else:
+            print("20 MA: ▼")
+
+        if (aboveMovingAverage(stockHistoricalData, 50)): # 20 period MA
+            print ("50 MA: ▲")
+        else:
+            print("50 MA: ▼")
+
+        print("\n")
+
+        print("\n")
+        print("Total Earnings Data Found:", len(allEarningsData))
+        print("Earnings Calculations Completed:", len(earningsCalcs)) # should result the same number as len(allEarningsData)
+
 
         print("Total Good Earnings:", len(goodEarnings))
         print("Total Bad Earnings:", len(badEarnings))
@@ -530,10 +554,11 @@ if __name__ == "__main__":
             percBadEarningsPriceDecreasePreviousCloseDowntrend = len(badEarningsPriceDecreaseFromPastCloseDowntrend) / len(badEarningsDowntrend) * 100
         print("% of missed earnings where price decreases from open and is in downtrend:", str(percBadEarningsPriceDecreaseOpenDowntrend) + "%")
         print("% of missed earnings where price decreases from previous close and is in downtrend:", str(percBadEarningsPriceDecreasePreviousCloseDowntrend) + "%")
-
+        '''
 
 
     # TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC TOTAL CALC 
+    print("\n\n")
     print("Total Data Points Evaluated:", totaldataPieces)
     print("Total Good Earnings:", totalgoodEarnings)
     print("Total Bad Earnings:", totalbadEarnings)
@@ -591,6 +616,10 @@ if __name__ == "__main__":
     print("% of missed earnings where price decreases from open and is in downtrend:", str(percBadEarningsPriceDecreaseOpenDowntrend) + "%")
     print("% of missed earnings where price decreases from previous close and is in downtrend:", str(percBadEarningsPriceDecreasePreviousCloseDowntrend) + "%")
 
+    endTime = datetime.datetime.now()
+
+    totalTime = endTime - startTime
+    print("Time to completion:", totalTime.seconds)
 
 
 
