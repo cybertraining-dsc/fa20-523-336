@@ -37,7 +37,7 @@ class EarningsDay:
 # returns a list of OHLC objects relative to the stock ticker
 def FMPgetStockHistoricalData(stockTicker, apiKey):
 
-    historicalDataUrl = "https://financialmodelingprep.com/api/v3/historical-price-full/" + stockTicker + "?apikey=" + apiKey
+    historicalDataUrl = "https://financialmodelingprep.com/api/v3/historical-price-full/" + stockTicker + "?timeseries=10000&apikey=" + apiKey
 
     try:
         historicalDataJSON = requests.get(historicalDataUrl).json()
@@ -100,7 +100,7 @@ def belowMovingAverage (listOfOHLC, period):
 
 def FMPfindStockEarningsData (stockTicker, apiKey):
     
-    earningsURL = "https://financialmodelingprep.com/api/v3/historical/earning_calendar/AAPL?limit=80&apikey=" + apiKey
+    earningsURL = "https://financialmodelingprep.com/api/v3/historical/earning_calendar/" + stockTicker + "?limit=1000&apikey=" + apiKey
 
     try:
         earningsDataJSON = requests.get(earningsURL).json()
@@ -131,6 +131,7 @@ def FMPfindStockEarningsData (stockTicker, apiKey):
 def earningsCalculations (stockHistory, earningsHistory):
 
     earningsAndPriceChanges = []
+
     for earning in earningsHistory: # runs through all the earnings objects that the stock has
         for i in range(len(stockHistory)): # runs through all the stock days in order to find the day that the earning occured
             dayData = stockHistory[i]
@@ -191,6 +192,7 @@ if __name__ == "__main__":
 
     print("\n")
 
+
     # MOVING AVERAGES 
     # if the currentPriceIsAbove N periods of moving averages 
     if (aboveMovingAverage(stockHistoricalData, 20)): # 20 period MA
@@ -205,13 +207,68 @@ if __name__ == "__main__":
 
     print("\n")
 
-    # EARNINGS DATA
+
+    # EARNINGS DATA... CALCULATIONS
     # gives a list of the most recent earnings from the stock that you picked
     allEarningsData = FMPfindStockEarningsData(stockTicker, apiKey)
     mostRecentEarningsData = allEarningsData[-1]
-    print("The most recent earnings day was: " + mostRecentEarningsData.month + "-" + mostRecentEarningsData.day + "-" + mostRecentEarningsData.year)
-    print("EPS:", mostRecentEarningsData.eps)
-    print("Expected EPS:", mostRecentEarningsData.expectedEps)
+    earningsCalcs = earningsCalculations(stockHistoricalData, allEarningsData)
+
+    print("Total Earnings Data Found:", len(allEarningsData))
+    print("Earnings Calculations Completed:", len(earningsCalcs)) # should result the same number as len(allEarningsData)
+    #print("The most recent earnings day was: " + mostRecentEarningsData.month + "-" + mostRecentEarningsData.day + "-" + mostRecentEarningsData.year)
+    #print("EPS:", mostRecentEarningsData.eps)
+    #print("Expected EPS:", mostRecentEarningsData.expectedEps, "\n\n")
+
+
+    print("Historical Earnings")
+    goodEarnings = [] # the earnings where the actual EPS is higher than the expected EPS
+    goodEarningsPriceIncreaseFromOpen = [] # if we have good earnings, and the price of the stock increases from market open
+    goodEarningsPriceIncreaseFromPastCLose = [] # if we have good earnings, and the price of the stock increases from the last market days close
+    goodEarningsPriceDecreaseFromOpen = [] # if we have good earnings, and the price of the stock decreases from the market open
+    goodEarningsPriceDecreaseFromPastClose = [] # if we have good earnings, and the price of the stock decreases from the last market day close
+
+    badEarnings = [] # earnings where actual EPS is lower than the expected EPS
+    badEarningsPriceIncreaseFromOpen = [] # SEE DESCRIPTIONS ABOVE
+    badEarningsPriceIncreaseFromPastClose = []
+    badEarningsPriceDecreaseFromOpen = []
+    badEarningsPriceDecreaseFromPastClose = []
+
+    # runs through all calculations of earnings days of the stock
+    for earningData in earningsCalcs:
+
+        earningDay = earningData[0] # returns the earnings days object, stores the day, time, expected eps etc
+        changeFromPastClose = earningData[1] # gets the price change from the past close. This is useful becasue sometimes a stock will gap up during premarket trading
+        changeFromOpen = earningData[2] # change during the open market hours
+
+        # TYPICALLY, PRICES WILL MOVE UP WITH GOOD EARNINGS... HOWEVER THIS IS NOT ALWAYS THE CASE
+        if (earningDay.eps > earningDay.expectedEps): # good earnings
+            goodEarnings += [earningData]
+
+            if (changeFromPastClose > 0 or changeFromOpen > 0): # (+) good price movement
+                goodEarningsPriceIncrease += [earningData]
+            else: # (-) bad price movement
+                goodEarningsPriceDecrease += [earningData]
+
+        else: # bad earnings
+            badEarnings += [earningData]
+
+            if (changeFromPastClose > 0 or changeFromOpen > 0): # (+) good price movement
+                badEarningsPriceIncrease += [earningData]
+            else: # (-) bad price movement
+                badEarningsPriceDecrease += [earningData]
+
+    
+    # prints out the percentage of price increases/decrease to positive/negative earnings
+    print("Total Good Earnings:", len(goodEarnings))
+    print("Good Earnings Price Increase:", str(len(goodEarningsPriceIncrease) / len(goodEarnings) * 100) + "%")
+    print("Good Earnings Price Decrease:", str(len(goodEarningsPriceDecrease) / len(goodEarnings) * 100) + "%")
+
+    print("\n\n")
+
+    print("Total Bad Earnings:", len(badEarnings))
+    print("Bad Earnings Price Increase:", str(len(badEarningsPriceIncrease) / len(badEarnings) * 100) + "%")
+    print("Bad Earnings Price Decrease:", str(len(badEarningsPriceDecrease) / len(badEarnings) * 100) + "%")
 
 
 
