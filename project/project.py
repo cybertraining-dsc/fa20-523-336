@@ -20,6 +20,12 @@ class OHLC:
         self.minute = minute
         self.volume = volume
 
+        self.movingAverage20 = None
+        self.movingAverage50 = None
+
+        return
+
+
 # stores data about a stock's earning, expected, actual, date, etc. 
 class EarningsDay:
 
@@ -47,6 +53,7 @@ def FMPgetStockHistoricalData(stockTicker, apiKey):
 
     
     historicalData = [] # list of OHLC objects
+
     for i in range(len(historicalDataJSON)):
         dayData = historicalDataJSON[i]
 
@@ -62,10 +69,32 @@ def FMPgetStockHistoricalData(stockTicker, apiKey):
         close = dayData["close"]
         volume = dayData["volume"]
 
-        historicalData.insert(0, OHLC(open, high, low, close, month, day, year, volume=volume))
+        # this is the OHLC object that will be inserted into the list
+        ohlcData = OHLC(open, high, low, close, month, day, year, volume=volume)
+
+        # checks to see if we can calculate the moving average for this data
+        if (len(historicalData) >= 20): # perform 20 period moving average calc on this data piece
+            ohlcData.movingAverage20 = getAverageOfClose(historicalData[-20:]) # gets the last 20 objects in the list
+
+        if (len(historicalData) >= 50): # perform 50 period moving average calc on this data piece
+            ohlcData.movingAverage50 = getAverageOfClose(historicalData[-50:]) # gets the last 50 objects in the list
+
+
+
+        historicalData.insert(0, ohlcData)
 
     return historicalData # []
 
+
+# gets the average close price of all data pieces in the list (used for moving average function within the data pull function)
+def getAverageOfClose(listOfOHLC):
+    total = 0
+    average = 0
+    lenOfList = len(listOfOHLC)
+    for data in listOfOHLC:
+        data.close += total
+
+    average = total / lenOfList
 
 # typically, stocks are looked to be in an uptrend when the price of the equity is currently greater than the 20 and 50 period moving averages. 
 # this function will help me get move information of the stocks and use it to compare another variable to the change in price during earnings
@@ -224,15 +253,35 @@ if __name__ == "__main__":
     print("Historical Earnings")
     goodEarnings = [] # the earnings where the actual EPS is higher than the expected EPS
     goodEarningsPriceIncreaseFromOpen = [] # if we have good earnings, and the price of the stock increases from market open
-    goodEarningsPriceIncreaseFromPastCLose = [] # if we have good earnings, and the price of the stock increases from the last market days close
+    goodEarningsPriceIncreaseFromPastClose = [] # if we have good earnings, and the price of the stock increases from the last market days close
     goodEarningsPriceDecreaseFromOpen = [] # if we have good earnings, and the price of the stock decreases from the market open
     goodEarningsPriceDecreaseFromPastClose = [] # if we have good earnings, and the price of the stock decreases from the last market day close
 
+    goodEarningsPriceIncreaseFromOpenUptrend = [] # if we have good earnings, price increase from open, and stock is in an uptrend
+    goodEarningsPriceIncreaseFromPastCloseUptrend = [] # if we have good earnings, price increased from close, and stock is in an uptrend
+    goodEarningsPriceIncreaseFromOpenDowntrend = [] # if we have good earnings, price increased from open, and stock is in a downtrend
+    goodEarningsPriceIncreaseFromPastCloseDowntrend = [] # if we have good earnings, price increased from the past close, and the stock is in a downtrend
+    goodEarningsPriceDecreaseFromOpenUptrend = [] # if we have good earnings, price decreases from open, and the stock is in an uptrend 
+    goodEarningsPriceDecreaseFromPastCloseUptrend = [] # if we have good earnings, price decreases from past close, and the stock is in an uptrend
+    goodEarningsPriceDecreaseFromOpenDowntrend = [] # if we have good earnings, price decreses from open, and the stock is in a downtrend
+    goodEarningsPriceDecreaseFromPastCloseDowntrend = [] # if we have good earnings, price decreased from the past close, and the stock is in a downtrend
+
+
     badEarnings = [] # earnings where actual EPS is lower than the expected EPS
-    badEarningsPriceIncreaseFromOpen = [] # SEE DESCRIPTIONS ABOVE
-    badEarningsPriceIncreaseFromPastClose = []
+    badEarningsPriceIncreaseFromOpen = [] # SEE DESCRIPTIONS ABOVE. 
+    badEarningsPriceIncreaseFromPastClose = [] # ALL THESE FOR BAD EARNINGS
     badEarningsPriceDecreaseFromOpen = []
     badEarningsPriceDecreaseFromPastClose = []
+    
+    badEarningsPriceIncreaseFromOpenUptrend = []
+    badEarningsPriceIncreaseFromPastCloseUptrend = []
+    badEarningsPriceIncreaseFromOpenDowntrend = []
+    badEarningsPriceIncreaseFromPastCloseDowntrend = []
+    badEarningsPriceDecreaseFromOpenUptrend = []
+    badEarningsPriceDecreaseFromPastCloseUptrend = []
+    badEarningsPriceDecreaseFromOpenDowntrend = []
+    badEarningsPriceDecreaseFromPastCloseDowntrend = []
+
 
     # runs through all calculations of earnings days of the stock
     for earningData in earningsCalcs:
@@ -242,34 +291,50 @@ if __name__ == "__main__":
         changeFromOpen = earningData[2] # change during the open market hours
 
         # TYPICALLY, PRICES WILL MOVE UP WITH GOOD EARNINGS... HOWEVER THIS IS NOT ALWAYS THE CASE
-        if (earningDay.eps > earningDay.expectedEps): # good earnings
+
+        # GOOD EARNINGS! --- EPS is more than expected EPS 
+        if (earningDay.eps > earningDay.expectedEps):
             goodEarnings += [earningData]
 
-            if (changeFromPastClose > 0 or changeFromOpen > 0): # (+) good price movement
-                goodEarningsPriceIncrease += [earningData]
-            else: # (-) bad price movement
-                goodEarningsPriceDecrease += [earningData]
+            if (changeFromPastClose > 0): # (+) positive price change from last close (this includes the afterhours market)
+                goodEarningsPriceIncreaseFromPastClose += [earningData]
+            else: # (-) negative price movement from the last close (this includes the afterhours market)
+                goodEarningsPriceIncreaseFromPastClose += [earningData]
 
-        else: # bad earnings
+            if (changeFromOpen > 0): # (+) positive price change from the current days open (this does not account from premarket activity / price gaps at open)
+                goodEarningsPriceIncreaseFromOpen += [earningData]
+            else:
+                goodEarningsPriceDecreaseFromOpen += [earningData]
+
+        # BAD EARNINGS! --- EPS is less than expected EPS 
+        else: 
             badEarnings += [earningData]
 
-            if (changeFromPastClose > 0 or changeFromOpen > 0): # (+) good price movement
-                badEarningsPriceIncrease += [earningData]
-            else: # (-) bad price movement
-                badEarningsPriceDecrease += [earningData]
+            if (changeFromPastClose > 0): # (+) positive price change from last close (this includes the afterhours market)
+                badEarningsPriceIncreaseFromPastClose += [earningData]
+            else: # (-) negative price movement from the last close (this includes the afterhours market)
+                badEarningsPriceIncreaseFromPastClose += [earningData]
+
+            if (changeFromOpen > 0): # (+) positive price change from the current days open (this does not account from premarket activity / price gaps at open)
+                badEarningsPriceIncreaseFromOpen += [earningData]
+            else:
+                badEarningsPriceDecreaseFromOpen += [earningData]
 
     
     # prints out the percentage of price increases/decrease to positive/negative earnings
     print("Total Good Earnings:", len(goodEarnings))
-    print("Good Earnings Price Increase:", str(len(goodEarningsPriceIncrease) / len(goodEarnings) * 100) + "%")
-    print("Good Earnings Price Decrease:", str(len(goodEarningsPriceDecrease) / len(goodEarnings) * 100) + "%")
+    print("Good Earnings Price Increase From Open:", str(len(goodEarningsPriceIncreaseFromOpen) / len(goodEarnings) * 100) + "%")
+    print("Good Earnings Price Increase From Past Close:", str(len(goodEarningsPriceIncreaseFromPastClose) / len(goodEarnings) * 100) + "%")
+    print("Good Earnings Price Decrease From Open:", str(len(goodEarningsPriceDecreaseFromOpen) / len(goodEarnings) * 100) + "%")
+    print("Good Earnings Price Decrease From Past Close:", str(len(goodEarningsPriceDecreaseFromPastClose) / len(goodEarnings) * 100) + "%")
 
     print("\n\n")
 
     print("Total Bad Earnings:", len(badEarnings))
-    print("Bad Earnings Price Increase:", str(len(badEarningsPriceIncrease) / len(badEarnings) * 100) + "%")
-    print("Bad Earnings Price Decrease:", str(len(badEarningsPriceDecrease) / len(badEarnings) * 100) + "%")
-
+    print("Bad Earnings Price Increase From Open:", str(len(badEarningsPriceIncreaseFromOpen) / len(badEarnings) * 100) + "%")
+    print("Bad Earnings Price Increase From Past Close:", str(len(badEarningsPriceIncreaseFromPastClose) / len(badEarnings) * 100) + "%")
+    print("Bad Earnings Price Decrease From Open:", str(len(badEarningsPriceDecreaseFromOpen) / len(badEarnings) * 100) + "%")
+    print("Bad Earnings Price Decrease From Past Close:", str(len(badEarningsPriceDecreaseFromPastClose) / len(badEarnings) * 100) + "%")
 
 
 
