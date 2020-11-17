@@ -5,7 +5,7 @@
 - [ ] section numbering wrong
 - [ ] empty lines missing
 - [ ] refernces missing
-- [ ] uses I
+- [ ] uses I and is not a formal report
 - [ ] please review our piazza posts
 
 
@@ -34,7 +34,7 @@ Secondly, the earnings data from the company must be gathered, FMP has the abili
 3.	Calculations and Results  
 	The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed below:
 	Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
-	This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.  
+	This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.   
 	   
 *	A. % of (+) beat earnings when the stock is in an uptrend  
 *	B. % of (-) missed earnings when the stock is in a downtrend  
