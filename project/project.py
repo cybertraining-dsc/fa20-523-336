@@ -273,6 +273,7 @@ if __name__ == "__main__":
     stockList = ["AAPL","MSFT","TWLO","AAL","AA","AB","BA","BMO"]
     stockList = getSPYcompanies(apiKey) # gets all of the SPY stock list
     print("LEN:", len(stockList))
+    stockList = ["AAPL"]
 
     startTime = datetime.datetime.now()
 
