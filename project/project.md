@@ -1,6 +1,6 @@
 # Stock Price Reactions to Earnings Announcements
 
-- [ ] can not be reviewed as does not follow our template
+- [ ] please use our template
 - [ ] breaks markdown as it contains microsoft word bullet points
 - [ ] section numbering wrong
 - [ ] empty lines missing
