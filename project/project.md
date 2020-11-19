@@ -52,7 +52,7 @@ Secondly, the earnings data from the company must be gathered, FMP has the abili
 
 ###### 5.3. Calculations And Results
 
-The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed below:
+The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed:
 Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
 
 This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.
@@ -118,7 +118,6 @@ Stocks Scanned: AAPL, MSFT, TWLO, GE, NVDA
 For the second results scan, 5 popular companies within the S&P500 were picked, in the technology and energy sector. This first test was meant to get a baseline of calculations of strong stocks in this index and get an estimated calculation time for the operation. After running the first calculation, the results were as followed. The total calculation time clocked in at just over 8 seconds for the 5 stock calculations (1.6 seconds/stock). At this rate, calculating all 500 stocks from the S&P500 should take around 13:20 minutes.
 
 From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 earnings beats, and 98 earnings misses. When stocks are in a current uptrend, the company is expected to beat earnings expectations 78.6% of the time, and when the stock is in a current downtrend the company is expected to miss earnings 59.7% of the time. This means that if the stock is in an uptrend, investors predicting a company will beat earnings would be correct more than 3/4 of the time. Of the stocks evaluated, if the company beat earnings, the price would increase from the open 42.3% of the time, and increase from the past close 61.3% of the time. Additionally, if a company missed earnings expectations, the stock price closed below the open 59% of the time, and below the previous close 60% of the time. This leads to the prediction that investors are more concerned about the company missing earnings, rather than the company beating earnings. The company missing earning expectations is more detrimental to the stock price than the company beating earnings predictions. Lastly, of these 5 stocks, the price increases from open, when earnings have been beat and the stock is in an uptrend, 43.5% of the time. Notice since we added the uptrend filter on this scan, it results a higher calculation than calculation C but only slightly. Stocks that are in an uptrend and beat earnings, increase from the previous close 63.9% of the time. Again, these results are only slightly higher than calculation D. If the stock is in a downtrend and the company misses earnings, the stock price will decrease from the open 60.1% of the time and will decrease from the previous close 54.3% of the time. This means that stocks that are in a downtrend and miss earnings, tend to actually have a spike up in premarket hours (before open 9:30amET) and then crash further throughout the day, since the decrease from open % is greater than the decrease from past close %.
-Below are test2 results formatted more neatly:
 
 * Total Data Points Evaluated: 36,170
 
@@ -144,8 +143,7 @@ Below are test2 results formatted more neatly:
 
 ##### Full Results - Calculation3
 
-The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total) to complete. This was one of the things that originally was surprising thought that the calculations were going to take significantly less time based on the first test calculations done. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, the changes between the first test scan and the full scan were identified. The calculation result percentages seemed to average out and begin to navigate towards the 50% (random) mark, although there were a few scan results that yielded some potential advantage across the board.
-Below are the results of the full scan, and the result differences compared to the 5-stock scan above:
+The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total) to complete. This was one of the things that originally was surprising as the first scan pointed toward the full calculations taking less time than it did. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, the changes between the first test scan and the full scan were identified. The calculation result percentages seemed to average out and begin to navigate towards the 50% (random) mark, although there were a few scan results that yielded some potential advantage across the board.
 
 * Total Data Points Evaluated: 3,704,001
 
@@ -181,3 +179,7 @@ Thank you to Dr. Gregor Von Laszewski, Dr. Geoffrey Fox and all other AI staff t
 ## 9. References
 
 [^1]: Financial Modeling Prep, [online] FMP. <https://financialmodelingprep.com> [Accessed Nov., 1 2020].
+[^2]: Quora Stock Market Daily Trades [online] Quora.com <https://www.quora.com/How-much-money-is-traded-daily-in-the-stock-market#:~:text=Feb%206%2C%202018%20%2D%20%24192%20billion%20for%20the%20day.>
+[^3]: Business Insider Earnings Calendar [online] Business Insider <https://markets.businessinsider.com/earnings-calendar>
+[^4]: Investopedia Moving Averages [online] Investopedia.com <https://www.investopedia.com/articles/active-trading/052014/how-use-moving-average-buy-stocks.asp#:~:text=The%20moving%20average%20(MA)%20is,time%20period%20the%20trader%20chooses.>
+[^5]: OHLC format [online] AnalyzingAlpha.com <https://analyzingalpha.com/open-high-low-close-stocks>
