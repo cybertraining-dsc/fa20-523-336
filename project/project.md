@@ -1,8 +1,12 @@
 # Stock Price Reactions to Earnings Announcements
 
+- [ ] Please replace the inline result bullet list as a table. 
+- [ ] Do not use the words above and below to mention the content in the report. That is not formally used in reports. 
+
+
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
-Status: final
+Status: in progress
 
 
 Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
@@ -93,7 +97,7 @@ The final set of calculations the software is performing looks at all parts of t
 
 ## 6. The Results
 
-##### Test Results - Calculation1
+### 6.1 Test Results - Calculation1
 
 Stock Scanned: AAPL
 
@@ -126,7 +130,7 @@ Stock Scanned: AAPL
 * J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend: 0%
 
 
-##### Test Results - Calculation2
+### 6.2 Test Results - Calculation2
 
 Stocks Scanned: AAPL, MSFT, TWLO, GE, NVDA
 
@@ -164,7 +168,7 @@ Below are test2 results formatted more neatly:
 * J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend: 54.35%
 
 
-##### Full Results - Calculation3
+### 6.3 Full Results - Calculation3
 
 The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total) to complete. This was one of the things that originally was surprising thought that the calculations were going to take significantly less time based on the first test calculations done. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, the changes between the first test scan and the full scan were identified. The calculation result percentages seemed to average out and begin to navigate towards the 50% (random) mark, although there were a few scan results that yielded some potential advantage across the board.
 Below are the results of the full scan, and the result differences compared to the 5-stock scan above:
