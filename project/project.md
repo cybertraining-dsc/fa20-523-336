@@ -2,7 +2,7 @@
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
-Status: in progress
+Status: final
 
 
 Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
@@ -204,5 +204,4 @@ Thank you to Dr. Gregor Von Laszewski, Dr. Geoffrey Fox and all other AI staff t
 
 ## 9. References
 
-[^1]: FinancialModelingPrep.com <https://www.financialmodelingprep.com>
-
+[^1]: Financial Modeling Prep, [online] FMP. <https://financialmodelingprep.com> [Accessed Nov., 1 2020].
