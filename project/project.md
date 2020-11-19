@@ -13,7 +13,7 @@ Contents
 
 {{% /pageinfo %}}
 
-**Keywords:** Stocks, stock, finance, earnings, company, market, stock market, revenue  
+**Keywords:** stocks, stock, finance, earnings, company, market, stock market, revenue, eps
 	
 
 ### 1. Introduction
