@@ -12,7 +12,7 @@ Status: in progress
 - [ ] you use I so thsi si not a formal report
 - [ ] there is an outstanding git issue
 
-Matthew Frechette, [fa20-523-312](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
+Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
 
 {{% pageinfo %}}
 
