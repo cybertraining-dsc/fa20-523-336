@@ -1,7 +1,12 @@
 # Stock Price Reactions to Earnings Announcements
 
-Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Project](https://github.com/cybertraining-dsc/fa20-523-336/blob/master/project)
+[![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
+[![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
+Status: in progress
 
+Matthew Frechette, [fa20-523-312](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
+
+{{% pageinfo %}}
 
 ## Abstract
 
