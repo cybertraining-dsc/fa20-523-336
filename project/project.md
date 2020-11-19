@@ -4,10 +4,6 @@
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
 Status: in progress
 
-- [ ] does not follow template, refernce section must be last
-- [ ] bullets you use are non ascii
-- [ ] there must not be a master branch as we do not know if you made a mistake by introducing it
-- [ ] your hid is 336, pleaase make sure to correct it
 - [ ] no abstract is provided
 - [ ] you use I so thsi si not a formal report
 - [ ] there is an outstanding git issue
@@ -49,15 +45,15 @@ For this project I chose to look at markets as a whole and had the ability to ac
 
 ## 5. The Process
 
-#####5.1. Data Collection
+##### 5.1. Data Collection
 
 The first and simplest part of the project was to gather the data from FMP. As this is a generally routine task and would need to be completed for every stock that was needed to be accessed, a function was created to more effectively gather this data. FMPgetStockHistoricalData(ticker, apiKey). The function took in a stock ticker and API key. The stock ticker must be reflective of a currently listed company on one of the US stock-exchanges. For example, entering a company that has been delisted (STGC: Startech Global) would result in an invalid result. The function also requires an FMP API key which can be purchased with unlimited pull requests for less than $20/month. This function returns a list of OHLC objects which store the stock’s open, high, low and close prices for the day, in addition to the month day and year of the price data. This is incredibly valuable data as it allows the software quick access to specific days in the company’s history. 
 
-#####5.2. Finding Earnings Data
+##### 5.2. Finding Earnings Data
 
 Secondly, the earnings data from the company must be gathered, FMP has the ability to pull earnings results going back roughly 20 years depending on the company, this is more than adequate for this software as I will not solely be using the earnings reports from only one company or industry. After the earnings dates, eps, and expected eps is pulled from the API call, it is stored in an earningsData object which possessed the date, eps, expected eps, revenue, and expected revenue for that specific earning call. A function in the software called FMPfindStockEarningData() returns a list of all earningsData object for further analysis.
 
-######5.3. Calculations And Results
+###### 5.3. Calculations And Results
 
 	The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed below:
 	Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
@@ -205,12 +201,11 @@ Although these results tend to show more randomness than the 5 scanned in the fi
 
 To conclude, as more and more companies are evaluated in the software's calculations, the chance of unusual and unique events increase. Theoretically, if a company outperforms their expected earnings and shows number better than what financial advisors predict the company to earn, investors should be encouraged to buy more shares in the company and in turn drive the price of the security higher. Sometimes however, stock prices act in the opposite effect during earnings times as large hedge funds and corporations sell off large volume shares of stock to fear other investors into selling. This can snowball the stock price down to where large institutions can repurchase massive amount of those shares again. This is usually refered to as market manipulation. (In a sort of dollar cost averaging method) Because of this, and many other market manipulation activities that occur on stock markets across the globe, positive earnings announcements do not always yield positive buyer sentiment and a price increase. Concluded from this research, it can be said that the strongest correlation to a stock beating earnings estimates, is the price trend of the security. If the stock is in a current uptrend, the chance of that security beating earnings is over 60% (based on SP500 Stock Calculations) With this, earnings announcements are something that many investors should and could look at while investing both short term and long term in companies, however, to develop a truly profitable trading strategy, more work and analysis would need to be conducted. The market moves in ways that few can acurately explain, and as more stocks are scanned and analyzed, the randomness and factor of luck began to show.
 
-## 8. References
-
-[^1]: FinancialModelingPrep.com <https://www.financialmodelingprep.com>
-
-## 9. Acknowledgements
+## 8. Acknowledgements
 
 Thank you to Dr. Gregor Von Laszewski, Dr. Geoffrey Fox and all other AI staff that helped with the planning and teaching of the I423 class during the COVID-19 pandemic through the fall 2020 semester. This class helped allow me to better understand areas of big data and the science behind it. Additionally, the class gave me the ability to learn more about a topic that has been interesting to me and I am very grateful for the expirience.
 
+## 9. References
+
+[^1]: FinancialModelingPrep.com <https://www.financialmodelingprep.com>
 
