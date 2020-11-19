@@ -15,10 +15,15 @@ With the passage of time, human activities have created and contributed much to 
 Contents
 
 {{< table_of_contents >}}
-[• 1. Introduction](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md#introduction)
-[• 2. Background And Previous Work](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md#background-and-previous-work)
-[• 3. The Data](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md#the-data)
-[• 4. The Idea](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md#the-idea)
+[- 1. Introduction](#introduction)
+[- 2. Background And Previous Work](#background-and-previous-work)
+[- 3. The Data](#the-data)
+[- 4. The Idea](#the-idea)
+[- 5. The Process](#the-process)
+[- 6. The Results](#the-results)
+[- 7. Conlusion](#conclusion)
+[- 8. References](#references)
+[- 9. Acknowledgements](#acknowledgements)
 
 {{% /pageinfo %}}
 
