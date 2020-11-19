@@ -180,10 +180,10 @@ Thank you to Dr. Gregor Von Laszewski, Dr. Geoffrey Fox and all other AI staff t
 
 [^1]: Financial Modeling Prep, [online] FMP. <https://financialmodelingprep.com> [Accessed Nov., 1 2020].
 
-[^2]: Quora Stock Market Daily Trades [online] Quora.com <https://www.quora.com/How-much-money-is-traded-daily-in-the-stock-market#:~:text=Feb%206%2C%202018%20%2D%20%24192%20billion%20for%20the%20day.>
+[^2]: Quora Stock Market Daily Trades [online] Quora.com <https://www.quora.com/How-much-money-is-traded-daily-in-the-stock-market#:~:text=Feb%206%2C%202018%20%2D%20%24192%20billion%20for%20the%20day.> [Accessed Nov., 10 2020].
 
-[^3]: Business Insider Earnings Calendar [online] Business Insider <https://markets.businessinsider.com/earnings-calendar>
+[^3]: Business Insider Earnings Calendar [online] Business Insider <https://markets.businessinsider.com/earnings-calendar> [Accessed Nov., 4 2020].
 
-[^4]: Investopedia Moving Averages [online] Investopedia.com <https://www.investopedia.com/articles/active-trading/052014/how-use-moving-average-buy-stocks.asp#:~:text=The%20moving%20average%20(MA)%20is,time%20period%20the%20trader%20chooses.>
+[^4]: Investopedia Moving Averages [online] Investopedia.com <https://www.investopedia.com/articles/active-trading/052014/how-use-moving-average-buy-stocks.asp#:~:text=The%20moving%20average%20(MA)%20is,time%20period%20the%20trader%20chooses.> [Accessed Nov., 11 2020].
 
-[^5]: OHLC format [online] AnalyzingAlpha.com <https://analyzingalpha.com/open-high-low-close-stocks>
+[^5]: OHLC format [online] AnalyzingAlpha.com <https://analyzingalpha.com/open-high-low-close-stocks> [Accessed Nov., 2 2020].
