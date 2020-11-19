@@ -4,9 +4,6 @@
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
 Status: in progress
 
-- [ ] no abstract is provided
-- [ ] you use I so thsi si not a formal report
-- [ ] there is an outstanding git issue
 
 Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
 
@@ -14,7 +11,7 @@ Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-
 
 ## Abstract
 
-Here is the abstract part that will be added in. changes
+On average the US stock market sees a total of $192 billion a day trading hands. Massive companies, hedge funds, and other high level institutions use the markets to capitalize on companies potential and growth over time. The authors used Financial Modeling Prep to gather over 20 years of historical stock data and earnings calls to understand better what happens during company's earnings annoucements. The results showed that over a large sample size of companies, identifying a strong coorelation was rather difficult, yet companies with strong price trend tendencies were more predictable to beat earnings expectations.
 
 Contents
 
