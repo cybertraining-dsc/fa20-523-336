@@ -57,6 +57,12 @@ Finds the likelihood of a company beating earnings solely on what the trend of t
 
 This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.
 
+| Hello  | Woww  |
+|---|---|
+|  w |  w |
+| w  |   |
+|   |   |
+
 * A. % of (+) beat earnings when the stock is in an uptrend
 
 * B. % of (-) missed earnings when the stock is in a downtrend
