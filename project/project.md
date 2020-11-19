@@ -2,7 +2,15 @@
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
-Status: final
+Status: in progress
+
+- [ ] does not follow template, refernce section must be last
+- [ ] bullets you use are non ascii
+- [ ] there must not be a master branch as we do not know if you made a mistake by introducing it
+- [ ] your hid is 336, pleaase make sure to correct it
+- [ ] no abstract is provided
+- [ ] you use I so thsi si not a formal report
+- [ ] there is an outstanding git issue
 
 Matthew Frechette, [fa20-523-312](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
 
