@@ -6,7 +6,8 @@ owner:
   community: "534"
   semester: "fa20"
 project:
-  title: TBD
-  url: TBD
+  title: Stock Price Reactions to Earnings Announcements
+  url: https://github.com/cybertraining-dsc/fa20-523-336/tree/main/project/project.md
+  proceedings: https://github.com/cybertraining-dsc/fa20-523-336/tree/main/project
   author:
-    - fa20-523-336
+    - Matthew Frechette, fa20-523-336
