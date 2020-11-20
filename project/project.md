@@ -92,16 +92,17 @@ The final set of calculations the software is performing looks at all parts of t
 
 ## 6. The Results
 
-##### Test Results - Calculation1
+= [ ] TODO: What is presented here
+
+### 6.1 Test Results - Calculation 1
+
+= [ ] TODO: What is presented here. What is calculation 1. use sentence
 
 Stock Scanned: AAPL
 
 * Total Data Points Evaluated: 10,000
-
 * Total Beat Earnings: 64 (84.2%)
-
 * Total Missed Earnings: 12 (15.8%)
-
 * Calculation Total in Seconds: 1
 
 | Calculation  | Description | Result  |
@@ -118,7 +119,9 @@ Stock Scanned: AAPL
 | J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 0% |
 
 
-##### Test Results - Calculation2
+### 6.2 Test Results - Calculation 2
+
+= [ ] TODO: What is presented here. What is calculation 2, use sentence
 
 Stocks Scanned: AAPL, MSFT, TWLO, GE, NVDA
 
@@ -127,11 +130,8 @@ For the second results scan, 5 popular companies within the S&P500 were picked, 
 From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 earnings beats, and 98 earnings misses. When stocks are in a current uptrend, the company is expected to beat earnings expectations 78.6% of the time, and when the stock is in a current downtrend the company is expected to miss earnings 59.7% of the time. This means that if the stock is in an uptrend, investors predicting a company will beat earnings would be correct more than 3/4 of the time. Of the stocks evaluated, if the company beat earnings, the price would increase from the open 42.3% of the time, and increase from the past close 61.3% of the time. Additionally, if a company missed earnings expectations, the stock price closed below the open 59% of the time, and below the previous close 60% of the time. This leads to the prediction that investors are more concerned about the company missing earnings, rather than the company beating earnings. The company missing earning expectations is more detrimental to the stock price than the company beating earnings predictions. Lastly, of these 5 stocks, the price increases from open, when earnings have been beat and the stock is in an uptrend, 43.5% of the time. Notice since we added the uptrend filter on this scan, it results a higher calculation than calculation C but only slightly. Stocks that are in an uptrend and beat earnings, increase from the previous close 63.9% of the time. Again, these results are only slightly higher than calculation D. If the stock is in a downtrend and the company misses earnings, the stock price will decrease from the open 60.1% of the time and will decrease from the previous close 54.3% of the time. This means that stocks that are in a downtrend and miss earnings, tend to actually have a spike up in premarket hours (before open 9:30amET) and then crash further throughout the day, since the decrease from open % is greater than the decrease from past close %.
 
 * Total Data Points Evaluated: 36,170
-
 * Total Beat Earnings: 222 (69.38%)
-
 * Total Missed Earnings: 98 (30.62%)
-
 * Calculation Total in Seconds: 8
 
 | Calculation  | Description | Result  |
@@ -148,16 +148,15 @@ From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 ear
 | J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 54.35% |
 
 
-##### Full Results - Calculation3
+### 6.3 Full Results - Calculation 3
+
+= [ ] TODO: What is presented here. What is calculation 3, use sentence. Is theer a better name than calculation 1,2,3. If not keep it 
 
 The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total) to complete. This was one of the things that originally was surprising as the first scan pointed toward the full calculations taking less time than it did. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, the changes between the first test scan and the full scan were identified. The calculation result percentages seemed to average out and begin to navigate towards the 50% (random) mark, although there were a few scan results that yielded some potential advantage across the board.
 
 * Total Data Points Evaluated: 3,704,001
-
 * Total Beat Earnings: 20,789 (62.3%)
-
 * Total Missed Earnings: 12,577 (37.7%)
-
 * Calculation Total in Seconds: 1023 (17 minutes)
 
 | Calculation  | Description | Result  |
