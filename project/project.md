@@ -6,6 +6,8 @@
 - [ ] paper does not include a benchmark section in results that describes how long it takes to download the data for each calculation or the calculation conducted. This coudl be a total, but also you coudl measue each caclulation form A - ? However looking at the code this is likely super fast is this correct. If so other than the download you could say that each individula calculation is below x seconds/milliseconds.
 YOu dod need to include information on which comuter you did this. memory, cpu. YOu may want to take a oook at cloudmesh StopWatch as you do not use functions to separate your calculations.
 - [ ] very good progress
+- [ ] None of your refernces are cited explicitly in the text, so they will not show in your final report on the cybertraining web page. Please fix. See the template on how to cite refernces. It is not enought to just put them in the refernce section.
+
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
