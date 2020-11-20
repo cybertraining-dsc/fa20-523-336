@@ -1,6 +1,8 @@
 # Stock Price Reactions to Earnings Announcements
 
 - [ ] each table must be proceeded with a numbered table caption that yu can then refer to in the text. such as Table 1
+- [ ] when you write "first result" SHould tahn not be "Results of Calculation 1 in Section 6.1", I woudl refer to all results that way
+
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
@@ -172,7 +174,17 @@ The final results scanned all stocks in the S&P500 and took roughly 17 minutes (
 | I. | % of (-) missed earnings, where price decreases from open and is in a current downtrend | 53.76% (-7.11% difference) |
 | J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 58.48% (-4.13% difference) |
 
-Although these results tend to show more randomness than the 5 scanned in the first results, there are a few scans that could yield a profitable and predictive strategy for investors, and/or provide some insight into what the price of a security may do. One area where the software is still able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time if the stock is above the 20 and 50 period moving averages. Of these times, the stock price will increase from the past close 57.68% of the time.
+
+
+Although these results tend to show more randomness than the 5 scanned in the 
+
+first results, 
+
+- [ ] Should that be 
+
+results of Calculation 1 in Section 6.1
+
+there are a few scans that could yield a profitable and predictive strategy for investors, and/or provide some insight into what the price of a security may do. One area where the software is still able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time if the stock is above the 20 and 50 period moving averages. Of these times, the stock price will increase from the past close 57.68% of the time.
 
 ## 7. Conclusion
 
