@@ -3,6 +3,8 @@
 - [ ] each table must be proceeded with a numbered table caption that yu can then refer to in the text. such as Table 1
 - [ ] when you write "first result" SHould tahn not be "Results of Calculation 1 in Section 6.1", I woudl refer to all results that way
 - [ ] when describing your analysis no links to your own programs are provided.
+- [ ] paper does not include a benchmark section in results that describes how long it takes to download the data for each calculation or the calculation conducted. This coudl be a total, but also you coudl measue each caclulation form A - ? However looking at the code this is likely super fast is this correct. If so other than the download you could say that each individula calculation is below x seconds/milliseconds.
+YOu dod need to include information on which comuter you did this. memory, cpu. YOu may want to take a oook at cloudmesh StopWatch as you do not use functions to separate your calculations.
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
