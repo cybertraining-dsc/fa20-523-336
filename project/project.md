@@ -104,18 +104,18 @@ Stock Scanned: AAPL
 
 * Calculation Total in Seconds: 1
 
-| Calculation  | Result  |
-|---|---|
-| A. % of (+) beat earnings when the stock is in an uptrend | 84% |
-| B. % of (-) missed earnings when the stock is in a downtrend  | 0% |
-| C. % of (+) beat earnings, where price increases from open  | 40.63% |
-| D. % of (+) beat earnings, where price increase from the previous day’s close | 67.19% |
-| E. % of (-) missed earnings, where price decreases from open | 50% |
-| F. % of (-) missed earnings, where price decreases from the previous day’s close | 75% |
-| G. % of (+) beat earnings, where price increases from open and is in a current uptrend | 39.68% |
-| H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 66.67% |
-| I. % of (-) missed earnings, where price decreases from open and is in a current downtrend | 0% |
-| J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 0% |
+| Calculation  | Description | Result  |
+|---|---|---|
+| A. | % of (+) beat earnings when the stock is in an uptrend | 84% |
+| B. | % of (-) missed earnings when the stock is in a downtrend  | 0% |
+| C. | % of (+) beat earnings, where price increases from open  | 40.63% |
+| D. | % of (+) beat earnings, where price increase from the previous day’s close | 67.19% |
+| E. | % of (-) missed earnings, where price decreases from open | 50% |
+| F. | % of (-) missed earnings, where price decreases from the previous day’s close | 75% |
+| G. | % of (+) beat earnings, where price increases from open and is in a current uptrend | 39.68% |
+| H. | % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 66.67% |
+| I. | % of (-) missed earnings, where price decreases from open and is in a current downtrend | 0% |
+| J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 0% |
 
 
 ##### Test Results - Calculation2
@@ -134,18 +134,18 @@ From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 ear
 
 * Calculation Total in Seconds: 8
 
-| Calculation  | Result  |
-|---|---|
-| A. % of (+) beat earnings when the stock is in an uptrend | 78.60% |
-| B. % of (-) missed earnings when the stock is in a downtrend  | 59.74% |
-| C. % of (+) beat earnings, where price increases from open  | 42.34% |
-| D. % of (+) beat earnings, where price increase from the previous day’s close | 61.26% |
-| E. % of (-) missed earnings, where price decreases from open | 59.18% |
-| F. % of (-) missed earnings, where price decreases from the previous day’s close | 60.2% |
-| G. % of (+) beat earnings, where price increases from open and is in a current uptrend | 43.46% |
-| H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 63.87% |
-| I. % of (-) missed earnings, where price decreases from open and is in a current downtrend | 60.87% |
-| J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 54.35% |
+| Calculation  | Description | Result  |
+|---|---|---|
+| A. | % of (+) beat earnings when the stock is in an uptrend | 78.60% |
+| B. | % of (-) missed earnings when the stock is in a downtrend  | 59.74% |
+| C. | % of (+) beat earnings, where price increases from open  | 42.34% |
+| D. | % of (+) beat earnings, where price increase from the previous day’s close | 61.26% |
+| E. | % of (-) missed earnings, where price decreases from open | 59.18% |
+| F. | % of (-) missed earnings, where price decreases from the previous day’s close | 60.2% |
+| G. | % of (+) beat earnings, where price increases from open and is in a current uptrend | 43.46% |
+| H. | % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 63.87% |
+| I. | % of (-) missed earnings, where price decreases from open and is in a current downtrend | 60.87% |
+| J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 54.35% |
 
 
 ##### Full Results - Calculation3
@@ -160,18 +160,18 @@ The final results scanned all stocks in the S&P500 and took roughly 17 minutes (
 
 * Calculation Total in Seconds: 1023 (17 minutes)
 
-| Calculation  | Result  |
-|---|---|
-| A. % of (+) beat earnings when the stock is in an uptrend | 61.6% (-17% difference) |
-| B. % of (-) missed earnings when the stock is in a downtrend  | 34.54% (-25.2% difference) |
-| C. % of (+) beat earnings, where price increases from open  | 51.8% (+9.46% difference) |
-| D. % of (+) beat earnings, where price increase from the previous day’s close | 56.74% (-4.52% difference) |
-| E. % of (-) missed earnings, where price decreases from open | 50.92% (-8.26% difference) |
-| F. % of (-) missed earnings, where price decreases from the previous day’s close | 56.92% (-3.28% difference) |
-| G. % of (+) beat earnings, where price increases from open and is in a current uptrend | 52.84% (+9.38% difference) |
-| H. % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 57.68% (-6.19% difference) |
-| I. % of (-) missed earnings, where price decreases from open and is in a current downtrend | 53.76% (-7.11% difference) |
-| J. % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 58.48% (-4.13% difference) |
+| Calculation  | Description | Result  |
+|---|---|---|
+| A. | % of (+) beat earnings when the stock is in an uptrend | 61.6% (-17% difference) |
+| B. | % of (-) missed earnings when the stock is in a downtrend  | 34.54% (-25.2% difference) |
+| C. | % of (+) beat earnings, where price increases from open  | 51.8% (+9.46% difference) |
+| D. | % of (+) beat earnings, where price increase from the previous day’s close | 56.74% (-4.52% difference) |
+| E. | % of (-) missed earnings, where price decreases from open | 50.92% (-8.26% difference) |
+| F. | % of (-) missed earnings, where price decreases from the previous day’s close | 56.92% (-3.28% difference) |
+| G. | % of (+) beat earnings, where price increases from open and is in a current uptrend | 52.84% (+9.38% difference) |
+| H. | % of (+) beat earnings, where price increases from the previous day’s close and is in an uptrend | 57.68% (-6.19% difference) |
+| I. | % of (-) missed earnings, where price decreases from open and is in a current downtrend | 53.76% (-7.11% difference) |
+| J. | % of (-) missed earnings, where price decreases from the previous day’s close and is in a downtrend | 58.48% (-4.13% difference) |
 
 Although these results tend to show more randomness than the 5 scanned in the first results, there are a few scans that could yield a profitable and predictive strategy for investors, and/or provide some insight into what the price of a security may do. One area where the software is still able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time if the stock is above the 20 and 50 period moving averages. Of these times, the stock price will increase from the past close 57.68% of the time.
 
