@@ -53,13 +53,7 @@ Secondly, the earnings data from the company must be gathered, FMP has the abili
 
 ### 5.3. Calculations And Results
 
-The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed:
-
-- [ ] TODO there is a colon here but not what the 10 calculations are. I guess you like to refer to the tables so you can say as listed in Tables 1 to ???. The next sections seem to contain sentence fragments that may or may not relate to the tables. Please can you improve the description as is unclear where what belongs. Maybe some of the functions are the captions. Please see academic papers or our examples an how to do use tables effectively in a research paper. We like the format of the tables, but due to lack of cations and their inclusion in the text it is a bit unclear. YOU could also just use one table and than refer to an explanation in text while refereing to the table and each row by your letter you introduced.
-
-Finds the likelihood of a company beating earnings solely on what the trend of the stock is doing.
-
-This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.
+The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed in Table 1.
 
 **Table 1**: Table shows the calculations that are to be performed on the SP500 dataset.
 
