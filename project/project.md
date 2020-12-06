@@ -55,6 +55,8 @@ Secondly, the earnings data from the company must be gathered, FMP has the abili
 
 The final and most complex area of the software’s processes include the calculations and results formulations functions. This is where all of the company’s stock data is computed to better understand the price action after the company exhibits an earnings call. This function formulates 10 main calculations listed in Table 1.
 
+The first set of calculation would be used to identify stocks that are projected to beat earnings based off the historical trend. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.
+
 **Table 1**: Table shows the calculations that are to be performed on the SP500 dataset.
 
 | Calculation  | Description  |
@@ -62,8 +64,8 @@ The final and most complex area of the software’s processes include the calcul
 | A. | % of (+) beat earnings when the stock is in an uptrend |
 | B.  | % of (-) missed earnings when the stock is in a downtrend  |
 
-Finds the likelihood of a stock’s price movement based on earnings results
-Stocks the perform well (or beat earnings) are typically looked at by investors as buying opportunities, and thus the security’s price increases. This is not always the case however, and the results of this will be shown later in the report. Sometimes, investors project the stock to beat earnings by more than others and in turn find even some positive earnings results bearish. This can cause major stockholder to sell their shares and bring the price down.
+These calculations find the likelihood of a stock’s price movement based on the company's earnings results.
+Stocks that perform well (or beat earnings) are typically looked at by investors as buying opportunities, and thus the security’s price increases. This is not always the case however, and the results of this will be shown later in the report. Sometimes, investors project the stock to beat earnings by more than others and in turn find even some positive earnings results bearish. This can cause major stockholder to sell their shares and bring the price down.
 
 | Calculation  | Description  |
 |---|---|
@@ -72,9 +74,7 @@ Stocks the perform well (or beat earnings) are typically looked at by investors 
 | E.  | % of (-) missed earnings, where price decreases from open  |
 | F. | % of (-) missed earnings, where price decreases from the previous day’s close |
 
-Finds the likelihood of a stock’s price movement based on earnings results and stock trend
-
-The final set of calculations the software is performing looks at all parts of the stock and its trend. It identifies the likelihood of a stock price increasing due to (+) beat or (-) missed earnings, while it is in a specific type of trend reflective of the earnings direction. This can be used by investors to find stocks in an uptrend or downtrend, who also want to play the earnings direction and try to profit from it.
+The final set of calculations the software is performing, looks at all parts of the stock and its trend. It identifies the likelihood of a stock price increasing due to (+) beat or (-) missed earnings, while it is in a specific type of trend reflective of the earnings direction. This can be used by investors to find stocks in an uptrend or downtrend, who also want to play the earnings direction and try to profit from it.
 
 | Calculation  | Description  |
 |---|---|
