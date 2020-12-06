@@ -1,17 +1,9 @@
 # Stock Price Reactions to Earnings Announcements
 
-- [ ] each table must be proceeded with a numbered table caption that yu can then refer to in the text. such as Table 1
-- [ ] when you write "first result" SHould tahn not be "Results of Calculation 1 in Section 6.1", I woudl refer to all results that way
-- [ ] when describing your analysis no links to your own programs are provided.
-- [ ] paper does not include a benchmark section in results that describes how long it takes to download the data for each calculation or the calculation conducted. This coudl be a total, but also you coudl measue each caclulation form A - ? However looking at the code this is likely super fast is this correct. If so other than the download you could say that each individula calculation is below x seconds/milliseconds.
-YOu dod need to include information on which comuter you did this. memory, cpu. YOu may want to take a oook at cloudmesh StopWatch as you do not use functions to separate your calculations.
-- [ ] very good progress
-- [ ] None of your refernces are cited explicitly in the text, so they will not show in your final report on the cybertraining web page. Please fix. See the template on how to cite refernces. It is not enought to just put them in the refernce section.
-
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
-Status: in progress
+Status: final
 
 
 Matthew Frechette, [fa20-523-336](https://github.com/cybertraining-dsc/fa20-523-336/), [Edit](https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.md)
@@ -69,7 +61,7 @@ Finds the likelihood of a company beating earnings solely on what the trend of t
 
 This would be used to identify stocks that are projected to beat earnings based of the historical trend accuracy and price correlation. Using a strategy like this is not recommended and most likely will not be very accurate as a trend does not always correlate to the company actually being profitable.
 
-**Table 1**: TODO: Describe her what the table shows
+**Table 1**: Table shows the calculations that are to be performed on the SP500 dataset.
 
 | Calculation  | Description  |
 |---|---|
@@ -99,13 +91,15 @@ The final set of calculations the software is performing looks at all parts of t
 
 ## 6. The Results
 
-= [ ] TODO: What is presented here
+The results here are caclulated based on the data gathered and calculated during SP500 companyies' earnings.
 
 ### 6.1 Test Results - Calculation 1
 
-= [ ] TODO: What is presented here. What is calculation 1. use sentence
+**Table 2**: Table shows the results of the calculation on AAPL stock price going back 20 years.
 
 Stock Scanned: AAPL
+
+Caclulated using the code on: https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.py. API key required.
 
 * Total Data Points Evaluated: 10,000
 * Total Beat Earnings: 64 (84.2%)
@@ -128,13 +122,15 @@ Stock Scanned: AAPL
 
 ### 6.2 Test Results - Calculation 2
 
-= [ ] TODO: What is presented here. What is calculation 2, use sentence
+**Table 3**: Table shows the results of the calculation on AAPL, MSFT, TWLO, GE, and NVDA's stock price going back to their IPO. This caclulation gathers more data.
 
 Stocks Scanned: AAPL, MSFT, TWLO, GE, NVDA
 
 For the second results scan, 5 popular companies within the S&P500 were picked, in the technology and energy sector. This first test was meant to get a baseline of calculations of strong stocks in this index and get an estimated calculation time for the operation. After running the first calculation, the results were as followed. The total calculation time clocked in at just over 8 seconds for the 5 stock calculations (1.6 seconds/stock). At this rate, calculating all 500 stocks from the S&P500 should take around 13:20 minutes.
 
 From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 earnings beats, and 98 earnings misses. When stocks are in a current uptrend, the company is expected to beat earnings expectations 78.6% of the time, and when the stock is in a current downtrend the company is expected to miss earnings 59.7% of the time. This means that if the stock is in an uptrend, investors predicting a company will beat earnings would be correct more than 3/4 of the time. Of the stocks evaluated, if the company beat earnings, the price would increase from the open 42.3% of the time, and increase from the past close 61.3% of the time. Additionally, if a company missed earnings expectations, the stock price closed below the open 59% of the time, and below the previous close 60% of the time. This leads to the prediction that investors are more concerned about the company missing earnings, rather than the company beating earnings. The company missing earning expectations is more detrimental to the stock price than the company beating earnings predictions. Lastly, of these 5 stocks, the price increases from open, when earnings have been beat and the stock is in an uptrend, 43.5% of the time. Notice since we added the uptrend filter on this scan, it results a higher calculation than calculation C but only slightly. Stocks that are in an uptrend and beat earnings, increase from the previous close 63.9% of the time. Again, these results are only slightly higher than calculation D. If the stock is in a downtrend and the company misses earnings, the stock price will decrease from the open 60.1% of the time and will decrease from the previous close 54.3% of the time. This means that stocks that are in a downtrend and miss earnings, tend to actually have a spike up in premarket hours (before open 9:30amET) and then crash further throughout the day, since the decrease from open % is greater than the decrease from past close %.
+
+Caclulated using the code on: https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.py. API key required.
 
 * Total Data Points Evaluated: 36,170
 * Total Beat Earnings: 222 (69.38%)
@@ -157,9 +153,11 @@ From the 5 stocks scanned, there were over 36,170 data points evaluated, 222 ear
 
 ### 6.3 Full Results - Calculation 3
 
-= [ ] TODO: What is presented here. What is calculation 3, use sentence. Is theer a better name than calculation 1,2,3. If not keep it 
+This calculation find the test results based all stocks in the SP500.
 
 The final results scanned all stocks in the S&P500 and took roughly 17 minutes (1023 seconds in total) to complete. This was one of the things that originally was surprising as the first scan pointed toward the full calculations taking less time than it did. The total data points scanned totaled 3.7 million. From the results gathered on the full results pull, the changes between the first test scan and the full scan were identified. The calculation result percentages seemed to average out and begin to navigate towards the 50% (random) mark, although there were a few scan results that yielded some potential advantage across the board.
+
+Caclulated using the code on: https://github.com/cybertraining-dsc/fa20-523-336/blob/main/project/project.py. API key required.
 
 * Total Data Points Evaluated: 3,704,001
 * Total Beat Earnings: 20,789 (62.3%)
@@ -181,15 +179,7 @@ The final results scanned all stocks in the S&P500 and took roughly 17 minutes (
 
 
 
-Although these results tend to show more randomness than the 5 scanned in the 
-
-first results, 
-
-- [ ] Should that be 
-
-results of Calculation 1 in Section 6.1
-
-there are a few scans that could yield a profitable and predictive strategy for investors, and/or provide some insight into what the price of a security may do. One area where the software is still able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time if the stock is above the 20 and 50 period moving averages. Of these times, the stock price will increase from the past close 57.68% of the time.
+Although these results tend to show more randomness than the 5 scanned in the results of Calculation 1 in Section 6.1, there are a few scans that could yield a profitable and predictive strategy for investors, and/or provide some insight into what the price of a security may do. One area where the software is still able to predict events is in scan A, where we are evaluating the probability that the company will beat earning solely based on what the stock price trend is doing. If we only looked while investing in S&P500 stocks, an investor would be able to assume the company will beat earnings 61.6% of the time if the stock is above the 20 and 50 period moving averages. Of these times, the stock price will increase from the past close 57.68% of the time.
 
 ## 7. Conclusion
 
