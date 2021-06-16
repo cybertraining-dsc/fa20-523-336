@@ -1,5 +1,14 @@
-# Stock Price Reactions to Earnings Announcements
-
+---
+date: 2021-03-15
+title: Stock Price Reactions to Earnings Announcements
+linkTitle: Stock prices
+tags: ["project", "ai", "finance"]
+description: Stock Price Reactions to Earnings Announcements
+author: Matthew Frechette
+resources:
+- src: "**.{png,jpg}"
+  title: "Image #:counter"
+---
 
 [![Check Report](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions) 
 [![Status](https://github.com/cybertraining-dsc/fa20-523-336/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/fa20-523-336/actions)
