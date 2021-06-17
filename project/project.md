@@ -5,6 +5,7 @@ linkTitle: Stock prices
 tags: ["project", "ai", "finance"]
 description: "On average the US stock market sees a total of $192 billion a day trading hands. Massive companies, hedge funds, and other high level institutions use the markets to capitalize on companies potential and growth over time. The authors used Financial Modeling Prep to gather over 20 years of historical stock data and earnings calls to understand better what happens during company's earnings annoucements. The results showed that over a large sample size of companies, identifying a strong coorelation was rather difficult, yet companies with strong price trend tendencies were more predictable to beat earnings expectations."
 author: Matthew Frechette
+github_url: https://github.com/cybertraining-dsc/fa20-523-336/edit/main/project/project.md
 resources:
 - src: "**.{png,jpg}"
   title: "Image #:counter"
